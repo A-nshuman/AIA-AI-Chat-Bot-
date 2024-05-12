@@ -1,0 +1,87 @@
+.sidebar {
+    height: 100dvh;
+    background-color: lightgray;
+    max-width: 265px;
+    background-color: #2b2b2b;
+    color: whitesmoke;
+    // width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Noto Sans", sans-serif;
+    padding: 20px;
+
+    @media (max-width: 590px) {
+        display: none;
+    }
+
+    & :where(img) {
+        max-width: 30px;
+        height: 30px;
+        filter: invert(1);
+    }
+
+    & :where(.menu, .newChat, .recent-entry, .help, .activity, .settings) {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        min-height: 50px;
+        align-items: center;
+        justify-content: start;
+        cursor: pointer;
+        padding: 10px;
+
+        &:hover {
+            background-color: rgba(169, 169, 169, 0.253);
+            border-radius: 30px;
+        }
+    }
+
+    .top {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .newChat {
+            justify-content: start;
+
+            img {
+                width: 30px;
+                height: auto;
+            }
+
+            p {
+                text-align: center;
+            }
+        }
+
+        .recent-title {
+            padding: 10px;
+        }
+
+        .recent-entry {
+            p {
+                font-size: 0.9rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .bottom :where(.help, .activity, .settings):hover {
+        img {
+            animation: rotateImageAnim 1s;
+
+            @keyframes rotateImageAnim {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(-360deg);
+                }
+            }
+        }
+    }
+}
